@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>study sync</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+            font-family: 'inter', sans-serif;
+        }
+
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            width: 100vw;
+
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 40%;
+            gap: 5px;
+            align-items: center;
+            transform: scale(1.5);
+            overflow: hidden;
+
+        }
+
+        .leftnav,
+        .left-top,
+        .middlenav,
+        .left-bottom ul,
+        .rightnav {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: space-between; */
+            gap: 10px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(99, 98, 98);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        #contact_us,
+        .button,
+        button {
+            background-color: #6366f1;
+            color: white;
+            border-radius: 3px;
+            padding: 4px;
+            font-size: small;
+            border: none;
+        }
+
+
+        .grid {
+            width: 70%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+
+        }
+
+        #gridtext {
+            margin-top: 5rem;
+            padding-left: 7rem;
+        }
+
+        .gridimg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #gridimg {
+            object-fit: cover;
+            width: 90%;
+            border-radius: 1.5rem;
+        }
+
+
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4rem;
+            padding-inline: 2rem;
+        }
+
+        #gridtext h1 {
+            font-weight: bold;
+        }
+
+        .buttoncontainer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        #tourb {
+            background-color: rgb(74, 74, 74);
+        }
+
+        #gridtext p:first-of-type,
+        .testimonial-item span,
+        #news {
+            color: #5557f3;
+            font-weight: 600;
+        }
+
+        svg {
+            fill: #6366f1
+        }
+
+
+        .brand {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .brandgrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* grid-template-rows: 1fr 1fr; */
+            gap: 1rem;
+            background-color: rgb(221, 220, 220);
+            padding: 1rem;
+            border-radius: 0.5rem;
+
+        }
+
+        .brand img,
+        .brand span {
+            font-weight: 700;
+            color: rgb(117, 117, 117);
+        }
+
+        .card {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem 0;
+            background-color: rgb(221, 220, 220);
+            margin-top: 2rem;
+        }
+
+        .card-container {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
+            padding-inline: 20rem;
+        }
+
+        .card-item {
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            flex-direction: column;
+        }
+
+        .imgbg {
+            width: 3rem;
+            height: 3rem;
+            /* clip-path: circle(); */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+
+        }
+
+        .card-container img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        #blue {
+            background-color: #4a90e2;
+        }
+
+        #pink {
+            background-color: #FF6289;
+        }
+
+        #yellow {
+            background-color: #fcbf58;
+        }
+
+        #turquoise {
+            background-color: #44bfc3;
+        }
+
+        #green {
+            background-color: #598446;
+        }
+
+        #purple {
+            background-color: #7d78b1;
+        }
+
+        #greenimg {
+            width: 5rem;
+            height: 3rem;
+            clip-path: circle();
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            margin-top: 2rem;
+        }
+
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+
+
+        }
+
+        .testimonial-item img {
+            height: 5rem;
+            width: 5rem;
+        }
+
+        .testimonial-item {
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            padding: 2rem;
+            margin: 0 auto;
+            max-width: 62.5rem;
+            height: 21rem;
+        }
+
+        .newsleft {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #newsleft {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .newsright {
+            width: 50%;
+            height: 100%;
+            background-color: rgb(221, 220, 220);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0.5rem;
+            justify-content: center;
+            align-items: start;
+            box-sizing: border-box;
+        }
+
+        .newsletter a {
+            color: #2079df;
+            text-decoration: underline;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 7rem;
+            margin-bottom: 0.5rem;
+
+        }
+
+        .footer-right {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: start;
+            gap: 2rem;
+            /* grid-template-columns: repeat(4, 1fr); */
+
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-evenly;
+            gap: 1.2rem;
+        }
+
+        .footer-right ul li a,
+        .footer-left ul li a {
+            color: rgb(99, 98, 98);
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        hr {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #copyright {
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+
+        @media screen and (max-width: 1300px) {
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+                width: 100vw;
+
+            }
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 50%;
+                gap: 10px;
+                margin-top: 2px;
+                transform: scale(1.5);
+
+
+
+            }
+        }
+
+        @media screen and (max-width: 1016px) {
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+                margin-top: 2px;
+                align-items: center;
+                transform: scale(1.7);
+
+            }
+
+            main {
+                margin-top: 1.5rem;
+            }
+
+            .brandgrid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 466px) {
+            nav {
+                transform: scale(1.2);
+            }
+
+            .brandgrid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 1150px) {
+
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            #gridtext {
+                margin-top: 2rem;
+                padding: 0;
+            }
+
+            .gridimg {
+                display: flex;
+                align-items: center;
+
+            }
+        }
+
+        @media screen and (max-width: 615px) {
+            .card-container {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: repeat(1, minmax(300px, 1fr));
+                grid-template-rows: repeat(6, 1fr);
+                padding-inline: 2rem;
+            }
+
+
+            .testimonial-container {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .newsletter {
+                flex-direction: column;
+                width: 100vw;
+                height: auto;
+            }
+
+            .newsleft {
+                width: 100%;
+                height: auto;
+            }
+
+            .newsright {
+                width: 100%;
+                height: auto;
+                min-width: 0;
+                box-sizing: border-box;
+                padding: 0.5rem;
+                align-items: center;
+                justify-content: center;
+                overflow-wrap: break-word;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 910px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .footer-right {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .footer-left {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="leftnav">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+
+                    <path
+                        d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.8-9.2L288 94.6z" />
+                </svg>
+                <p>STUDYSYNC</p>
+            </div>
+
+            <div class="middlenav">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a><a href="#">Blog</a>
+                <a href="#">About</a>
+            </div>
+
+            <div class="rightnav">
+                <a id="contact_us" href="#">Contact us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="grid">
+            <div id="gridtext">
+                <p>very proud to introduce</p>
+                <h1>SEAMLESS LEARNING FOR BRIGHTER FUTURE </h1>
+                <br>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo vero accusamus eveniet
+                    praesentium
+                    perspiciatis cupiditate eos commodi, sit, rem beatae deserunt nisi et amet architectolor Lorem ipsum
+                    dolor sit amet. Lorem ipsum dolor sit amet. </p>
+                <br>
+                <div class="buttoncontainer">
+                    <div class="button" id="startb"><a href="">Start Now</a></div>
+                    <div class="button" id="tourb"><a href="">Take Tour</a></div>
+                </div>
+            </div>
+            <div class="gridimg"><img id="gridimg"
+                    src="https://github.com/loveBabbar/CodehelpYTWebDev/blob/main/html_CSS_JS/lecture33/images/usgs-hoS3dzgpHzw-unsplash.jpg?raw=true"
+                    alt="wallpaper">
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="brand">
+        <h3>Trusted by the best</h3>
+        <br>
+        <div class="brandgrid">
+            <div>
+                <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/Google.svg"
+                    alt="Google">
+                <span>Google</span>
+            </div>
+            <div>
+                <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/Microsoft.svg"
+                    alt="">
+                <span>Microsoft</span>
+            </div>
+            <div><img
+                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/linkedin.svg"
+                    alt=""><span> linkedin</span></div>
+            <div><img
+                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/VectorEdu.svg"
+                    width="15px"><span> VectorEdu</span></div>
+        </div>
+    </div>
+
+    <section class="card">
+        <h2>Our Competitive Advantages</h2>
+        <br>
+        <p>This is the section of some simple filter text,also known as a placeholder text. it share some
+            characteristics of real written text but is random or otherwise generated</p>
+        <br>
+        <div class="card-container">
+            <div class="card-item" id="blue">
+                <div class="imgbg">
+                    <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/PersonalizedLearn.svg"
+                        alt="">
+                </div>
+                <br>
+                <h3>Personalized Learning</h3>
+                <br>
+                <p>Offer tailored learning experiences through
+                    Al and machine learning to cater to
+                    individual student needs.</p>
+            </div>
+            <div class="card-item" id="pink">
+                <div class="imgbg">
+                    <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/Affordability.svg"
+                        alt="">
+                </div>
+                <br>
+                <h3>Affordability</h3>
+                <br>
+                <p>Provide high-quality education at an
+                    affordable price point, making it accessible
+                    to a broader audience.</p>
+            </div>
+            <div class="card-item" id="yellow">
+                <div class="imgbg">
+                    <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/IndustryPatner.svg"
+                        alt="">
+                </div>
+                <br>
+                <h3>Industry Partnerships</h3>
+                <br>
+                <p>Industry Partnerships
+
+                    Collaborate with well-known companies
+                    and institutions to offer accredited courses
+                    and certifications, adding credibility to
+                    your offerings.</p>
+            </div>
+            <div class="card-item" id="turquoise">
+                <div class="imgbg">
+                    <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/InnovativeTech.svg"
+                        alt="">
+                </div>
+                <br>
+                <h3>Innovative Technology</h3>
+                <br>
+                <p>
+                    Utilize cutting-edge technology, such as
+                    augmented reality or virtual reality, to
+                    create immersive learning experiences.
+                </p>
+            </div>
+            <div class="card-item" id="green">
+                <img id="greenimg" src="Screenshot 2025-08-19 111631.png" alt="">
+                <br>
+                <h3>Responsive Support</h3>
+                <br>
+                <p>Provide exceptional customer support and
+                    assistance to students and educators.</p>
+            </div>
+            <div class="card-item" id="purple">
+                <div class="imgbg">
+                    <img src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/Analytics.svg"
+                        alt="">
+                </div>
+                <br>
+                <h3>Analytics and Insights</h3>
+                <br>
+                <p>Offer detailed progress tracking and
+                    analytics to help students and teachers
+                    monitor performance and make data-
+                    driven decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <h2>What Our Users Say</h2>
+        <br>
+        <p>Hear from our satisfied users who have experienced the transformative power of StudySync.</p>
+        <br>
+        <div class="testimonial-container">
+            <div class="testimonial-item">
+                <p>"StudySync has revolutionized my learning experience. The personalized approach is unmatched!"</p>
+                <br>
+                <img src="https://github.com/loveBabbar/CodehelpYTWebDev/blob/main/html_CSS_JS/lecture33/images/avatar1.png?raw=true"
+                    alt="">
+                <br>
+                <span> Sarah Johnson</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"The affordability and quality of courses offered by StudySync are incredible. Highly recommend!"</p>
+                <br>
+                <img src="https://github.com/loveBabbar/CodehelpYTWebDev/blob/main/html_CSS_JS/lecture33/images/avatar2.png?raw=true"
+                    alt="">
+                <br>
+                <span> Mark Davis</span>
+            </div>
+            <div class="testimonial-item">
+                <p>"StudySync has made learning so much easier and more enjoyable. I'm grateful for this platform!"</p>
+                <br>
+                <img src="https://github.com/loveBabbar/CodehelpYTWebDev/blob/main/html_CSS_JS/lecture33/images/avatar3.png?raw=true"
+                    alt="">
+                <br>
+                <span> Dr. James Carter</span>
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+    <section class="newsletter">
+        <div class="newsleft">
+            <img id="newsleft"
+                src="https://github.com/loveBabbar/CodehelpYTWebDev/blob/main/html_CSS_JS/lecture33/images/img.png?raw=true"
+                alt="">
+        </div>
+        <div class="newsright">
+            <h2 id="news">Get the Latest Updates</h2>
+            <p>Sign up for our newsletter</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="Email" required>
+                <button type="submit">Send</button>
+            </form>
+            <br>
+            <p>by signing up, you agree to our
+                <a id="terms" href="#terms">terms and conditions</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="left-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+
+                        <path
+                            d="M368.4 18.3L312.7 74.1 437.9 199.3l55.7-55.7c21.9-21.9 21.9-57.3 0-79.2L447.6 18.3c-21.9-21.9-57.3-21.9-79.2 0zM288 94.6l-9.2 2.8L134.7 140.6c-19.9 6-35.7 21.2-42.3 41L3.8 445.8c-3.8 11.3-1 23.9 7.3 32.4L164.7 324.7c-3-6.3-4.7-13.3-4.7-20.7c0-26.5 21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48c-7.4 0-14.4-1.7-20.7-4.7L33.7 500.9c8.6 8.3 21.1 11.2 32.4 7.3l264.3-88.6c19.7-6.6 35-22.4 41-42.3l43.2-144.1 2.8-9.2L288 94.6z" />
+                    </svg>
+                    <p>STUDYSYNC</p>
+                </div>
+                <div class="left-middle">
+                    <p>Seamless learning for a brighter future.</p>
+                </div>
+                <div class="left-bottom">
+                    <ul>
+                        <li><a href="#"><img
+                                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/instagram.svg"
+                                    alt="insta"></a></li>
+                        <li><a href="#"><img
+                                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/twitter.svg"
+                                    alt="twitter"></a></li>
+                        <li><a href="#"><img
+                                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/linkedin-copy.svg"
+                                    alt="linkedin"></a></li>
+                        <li><a href="#"><img
+                                    src="https://raw.githubusercontent.com/loveBabbar/CodehelpYTWebDev/5f10c3122a1081eed273bdf54a733d5302540105/html_CSS_JS/lecture33/images/github.svg"
+                                    alt="github"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="product">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">Solution</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Customers</a></li>
+                    </ul>
+                </div>
+                <div class="company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#team">Job</a></li>
+                        <li><a href="#investor">Investor relations</a></li>
+                        <li><a href="#press">Press</a></li>
+                        <li><a href="#blogs">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="support">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="#privacy">Chats</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="legal">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="copyright">
+            <p>&copy; 2021-Present StudySync. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
